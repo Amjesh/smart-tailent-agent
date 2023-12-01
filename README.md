@@ -1,4 +1,4 @@
-**- AI Talent Assessment (Amjesh)**
+**AI Talent Assessment**
 
 To harness the power of AI, you should start by finding suitable candidates for a job. You do this by looking at their job descriptions and resumes. Then, you compare the job description to the candidate's resume to see if they are a good fit for the job. Additionally, it's essential to create well-crafted technical and logical questions along with their answers.
 
@@ -12,6 +12,3 @@ To harness the power of AI, you should start by finding suitable candidates for 
 **Thorough Evaluation**: Ensure a comprehensive assessment of each candidate to gauge their qualifications and suitability for the role.
 
 **Optimizing Hiring Process**: Utilize AI-powered tools to streamline the hiring process, making it more efficient and effective in identifying the best candidates for the job.
-
-
----
