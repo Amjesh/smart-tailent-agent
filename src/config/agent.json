@@ -1,0 +1,25 @@
+{
+  "name": null,
+  "description": null,
+  "icon": null,
+  "color": null,
+  "url": null,
+  "capabilities": null,
+  "inputs": [
+    {
+      "name": "query",
+      "type": "shortText",
+      "label": "Query",
+      "validation": {
+        "required": true,
+        "error": "Query is required"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "label": "summary",
+      "type": "shortText"
+    }
+  ]
+}

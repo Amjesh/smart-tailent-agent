@@ -12,3 +12,34 @@ To harness the power of AI, you should start by finding suitable candidates for 
 **Thorough Evaluation**: Ensure a comprehensive assessment of each candidate to gauge their qualifications and suitability for the role.
 
 **Optimizing Hiring Process**: Utilize AI-powered tools to streamline the hiring process, making it more efficient and effective in identifying the best candidates for the job.
+
+
+### Development Guidelines
+
+#### Pre-required
+
+- python3 >= 3.11.3
+- fastapi >= 0.70.0
+- uvicorn >= 0.15.0
+
+#### Technology stack
+
+- FastAPI
+- Uvicorn
+- Poetry
+
+#### To run the agent
+
+```
+Step 1: Clone project from github
+
+Step 2: python3 -m venv venv
+
+Step 3: source venv/bin/activate
+
+step 4: pip install -r requirements.txt
+
+Step 5: python3 main.py or uvicorn main:app --reload
+
+
+```
