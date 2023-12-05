@@ -34,9 +34,6 @@ class ExecuteController:
             # Get payload data
             payload = payload.dict()
 
-            # Print payload data
-            print(payload)
-
             # Here you can write your agent logic.
             # You can use the payload data to perform your task.
             resp = base_agent(payload)
@@ -51,7 +48,7 @@ class ExecuteController:
             })
 
             logger.info('Function execute: Execution complete', resp)
-            return {"result": resp, "status": "success"}
+            return {"result": resp}
         except Exception as e:
             logger.error('Getting Error in ExecuteController.execute:', e)
             raise call_webhook_with_error(str(e), 500)

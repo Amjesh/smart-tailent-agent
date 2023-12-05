@@ -19,16 +19,15 @@ def base_agent(payload):
         # Write your agent logic in this function and return the response.
 
         # Remove from here the below line and write your logic here.
-        print("hello", payload)
         first_name = inputs[0].get("data")
-        last_name = inputs[1].get("data")
+
         # Remove from here the below line and write your logic here.
 
         # Replace with your output name, type and data.
         resp = {
             "name": "greeting",
             "type": "shortText",
-            "data": f"Wow! Hey {first_name} {last_name}, you've just rocked it by creating an awesome basic agent! 🚀✨"
+            "data": f"Wow! Hey {first_name}, you've just rocked it by creating an awesome basic agent! 🚀✨"
         }
 
         return resp

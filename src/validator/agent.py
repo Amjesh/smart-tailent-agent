@@ -36,4 +36,3 @@ class AgentSchema(BaseModel):
 
 class ApiResponse(BaseModel):
     result: Optional[Any] = None
-    status: Optional[Any] = None

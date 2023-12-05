@@ -11,8 +11,8 @@ class StatusController:
 
         if agent_id is not None and request_id == agent_id:
             doc['id'] = agent_id
-            doc['status'] = temp_data.get('status')
-            doc['data'] = temp_data.get('data')
+            doc['status'] = temp_data.get('status') or "completed"
+            doc['data'] = temp_data.get('data') or {}
         else:
             doc['id'] = request_id
             doc['status'] = "not_found"
