@@ -4,7 +4,7 @@ import json
 
 class Logger:
 
-    def __init__(self, log_file_name='src/logs/agent.log', log_level=logging.ERROR):
+    def __init__(self, log_file_name='agent.log', log_level=logging.ERROR):
         self.log_file_name = log_file_name
         self.log_level = log_level
         self.logger = logging.getLogger(__name__)
