@@ -1,9 +1,11 @@
 from pydantic import BaseModel
 
+
 class StatusSchema(BaseModel):
-  id: str
+    id: str
+
 
 class ApiResponse(BaseModel):
-  id: str
-  status: str
-  data: dict
+    id: str
+    status: str
+    data: dict

@@ -6,12 +6,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from src.routes import discover, execute, abort, status
 
-# add dot env
+# Add dot env
 load_dotenv()
 
+# Create App
 app = FastAPI()
 
+# Add CORS
 origins = os.environ.get('ALLOW_ORIGINS')
+
+# App middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins.split(","),
@@ -30,5 +34,7 @@ app.include_router(status.router)
 host = os.environ.get('APP_HOST', default='0.0.0.0')
 port = os.environ.get('APP_PORT', default='8000')
 isReload = os.environ.get('IS_RELOAD', default=False)
+
+# Run App
 if __name__ == "__main__":
     uvicorn.run("main:app", host=host, port=int(port), reload=isReload)

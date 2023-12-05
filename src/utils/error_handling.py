@@ -1,6 +1,7 @@
 import traceback
 from fastapi import HTTPException
 
+
 # @timing_decorator
 # @log_io_decorator
 def error_handler(error, status_code):
