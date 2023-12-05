@@ -29,7 +29,7 @@ class InputItem(BaseModel):
 
 
 class AgentSchema(BaseModel):
-    id: str
+    id: Any
     inputs: List[InputItem] = get_agent_inputs()
     webhookUrl: Optional[str] = None
 
