@@ -12,14 +12,18 @@ logger = Logger()
 def call_webhook_with_success(response):
     logger.info("Function call_webhook_with_success method called", response)
     id = temp_data.get('id')
-    payload = json.dumps({
-        "id": id,
-        "status": response.get("status"),
-        "data": response.get("data")
-    })
-    webhookUrl = os.environ.get('WEB_HOOK_URL')
-    resp = requests.post(webhookUrl, data=payload)
-    return resp
+    webhookUrl = temp_data.get('webhookUrl')
+    if webhookUrl:
+        payload = json.dumps({
+            "id": id,
+            "status": response.get("status"),
+            "data": response.get("data")
+        })
+        resp = requests.post(webhookUrl, data=payload)
+        return resp
+    else:
+        logger.info("Webhook URL not found in environment variable")
+        return None
 
 
 # This method is responsible for handle error and call webhook:

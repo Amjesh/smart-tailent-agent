@@ -1,24 +1,28 @@
 {
-  "name": null,
-  "description": null,
-  "icon": null,
-  "color": null,
-  "url": null,
+  "name": "Smart Agent",
+  "description": "This is a simple smart agent that greets the user by name.",
+  "icon": "https://s3.amazonaws.com/flowxo-static/icons/flow.png",
+  "color": "#00a6a6",
   "capabilities": null,
   "inputs": [
     {
-      "name": "query",
+      "name": "first_name",
       "type": "shortText",
-      "label": "Query",
+      "label": "First Name",
       "validation": {
         "required": true,
-        "error": "Query is required"
+        "error": "First Name is required"
       }
+    },
+    {
+      "name": "last_name",
+      "type": "shortText",
+      "label": "Last Name"
     }
   ],
   "outputs": [
     {
-      "label": "summary",
+      "label": "greeting",
       "type": "shortText"
     }
   ]

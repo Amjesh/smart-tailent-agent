@@ -12,8 +12,9 @@ router = APIRouter(tags=['Agent execution'])
 
 @router.post('/execute', response_model=ApiResponse)
 def execute_agent(request: AgentSchema):
-  
-  # save request id in temp_data
-  temp_data['id'] = request.id
-  temp_data['isExecutionContinue'] = True
-  return ExecuteController().execute(request)
+
+    # save request id in temp_data
+    temp_data['id'] = request.id
+    temp_data['webhookUrl'] = request.webhookUrl
+    temp_data['isExecutionContinue'] = True
+    return ExecuteController().execute(request)

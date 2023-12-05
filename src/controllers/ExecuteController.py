@@ -2,30 +2,56 @@ import os
 import json
 from src.validator.agent import AgentSchema
 from src.utils.webhook import call_webhook_with_success, call_webhook_with_error
-# import your agent here
-# from src.agents.filename import function_name
-
 from src.utils.temp_db import temp_data
 from src.config.logger import Logger
+from src.agent.base_agent import base_agent
 
 logger = Logger()
 
+
 class ExecuteController:
+    """
+    This class represents the controller for executing a task.
+    """
 
-  def __init__(self):
-    self.test = "Agent data"
+    def execute(self, payload: AgentSchema) -> dict:
+        """
+        Executes the task using the provided payload.
 
-  def execute(self, payload: AgentSchema):
-    try:
-      #add_input_here
-      resp = ''
-      # resp =  callYourAgent()
-      #add_output_here
-      # Call spritz API
-      #add_callback_here
+        Args:
+          payload (AgentSchema): The payload containing the data for the task.
 
-      logger.info('Function execute: Execution complete', resp)
-      return { "summary": "Agent execution has been completed.", "detail": resp }
-    except Exception as e:
-      logger.error('Function execute: error', e)
-      raise call_webhook_with_error(str(e), 500)
+        Returns:
+          dict: The result of the task execution.
+
+        Raises:
+          Exception: If an error occurs during task execution.
+        """
+
+        try:
+            logger.info('ExecuteController.execute() method called')
+
+            # Get payload data
+            payload = payload.dict()
+
+            # Print payload data
+            print(payload)
+
+            # Here you can write your agent logic.
+            # You can use the payload data to perform your task.
+            resp = base_agent(payload)
+
+            # Call webhook with success
+            call_webhook_with_success({
+                "status": 'completed',
+                "data": {
+                    "info": "Task successfully completed!",
+                    "output": resp
+                }
+            })
+
+            logger.info('Function execute: Execution complete', resp)
+            return {"result": resp, "status": "success"}
+        except Exception as e:
+            logger.error('Getting Error in ExecuteController.execute:', e)
+            raise call_webhook_with_error(str(e), 500)

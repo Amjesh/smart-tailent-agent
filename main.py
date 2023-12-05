@@ -33,7 +33,7 @@ app.include_router(status.router)
 # Config App
 host = os.environ.get('APP_HOST', default='0.0.0.0')
 port = os.environ.get('APP_PORT', default='8000')
-isReload = os.environ.get('IS_RELOAD', default=False)
+isReload = os.environ.get('IS_RELOAD', default=True)
 
 # Run App
 if __name__ == "__main__":

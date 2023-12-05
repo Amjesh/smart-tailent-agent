@@ -4,18 +4,33 @@ from src.config.logger import Logger
 
 logger = Logger()
 
+
 class AbortController:
+    """
+    The `AbortController` class provides methods to control the execution flow and stop the execution.
 
-  def __init__(self):
-    self.test = "test data"
+    Methods:
+      execution_abort: Stops the execution and returns a success message.
 
-  # This method is abort a execution
-  @classmethod
-  def execution_abort(self):
-    try:
-      logger.info("Function execution_abort method called")
-      temp_data['isExecutionContinue'] = False
-      return {"data": "", "detail": ""}
-    except Exception as e:
-      logger.error('Function execution_abort: error', e)
-      raise error_handler(e, 500)
+    """
+
+    @classmethod
+    def execution_abort(cls):
+        """
+        Stops the execution and returns a success message.
+
+        Returns:
+          dict: A dictionary containing the result and status of the execution stop.
+
+        Raises:
+          Exception: If an error occurs during the execution stop.
+
+        """
+        try:
+            logger.info("AbortController.execution_abort() method called")
+            temp_data['isExecutionContinue'] = False
+            return {"result": "Execution stopped successfully", "status": "success"}
+        except Exception as e:
+            logger.error(
+                'Getting Error in AbortController.execution_abort:', e)
+            raise error_handler(e, 500)
