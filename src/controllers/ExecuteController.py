@@ -5,7 +5,7 @@ from src.utils.webhook import call_webhook_with_success, call_webhook_with_error
 from src.utils.temp_db import temp_data
 from src.config.logger import Logger
 from src.agent.base_agent import base_agent
-
+import time
 logger = Logger()
 
 
@@ -37,6 +37,8 @@ class ExecuteController:
             # Here you can write your agent logic.
             # You can use the payload data to perform your task.
             resp = base_agent(payload)
+
+            time.sleep(5)
 
             # Call webhook with success
             call_webhook_with_success({
